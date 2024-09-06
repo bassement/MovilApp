@@ -1,0 +1,51 @@
+<ion-header>
+  <app-header title="Mis Hábitos"></app-header>
+</ion-header>
+
+<ion-content>
+
+  <div class="d-flex-center habit-container">
+
+    <!-- Tarjeta de Recomendaciones -->
+    <ion-card routerLink="/habits/recommendations">
+      <ion-card-header>
+        <ion-card-title>Recomendaciones</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Recibe sugerencias para hábitos saludables.
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Tarjeta de Hábitos Propios -->
+    <ion-card routerLink="/habits/custom-habits">
+      <ion-card-header>
+        <ion-card-title>Mis Hábitos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Añade y personaliza tus propios hábitos.
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Tarjeta de Seguimiento -->
+    <ion-card routerLink="/habits/tracking">
+      <ion-card-header>
+        <ion-card-title>Seguimiento de Hábitos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Monitorea tu progreso.
+      </ion-card-content>
+    </ion-card>
+
+    
+    <!-- FUNCIONO HARTOOOO -->
+    <!-- <app-animation><ion-card class="habit-card" *ngFor="let habit of habits">
+      <ion-card-header>
+        <ion-card-title>titulo</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+       descripcion
+      </ion-card-content>
+    </ion-card></app-animation> --> 
+  </div>
+
+</ion-content>

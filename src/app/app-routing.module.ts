@@ -14,6 +14,12 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthPageModule)
   },
+  {
+    path: 'habits',
+    loadChildren: () => import('./pages/habits/habits.module').then( m => m.HabitsPageModule)
+
+  },
+
  
 ];
 
