@@ -1,0 +1,15 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+
+    <!-- Botón de retroceso que se muestra si hay una URL de retroceso -->
+    <ion-buttons slot="start" *ngIf="backUrl">
+      <ion-back-button [defaultHref]="backUrl"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title> 
+      <strong> {{ title }} </strong>
+      <div class="admin">HabbitApp</div>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
