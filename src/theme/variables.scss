@@ -7,11 +7,21 @@
 // variables.scss
 
 :root {
-    // Colores para el tema claro
-    --ion-color-primary: #79c47c;   /* Verde para progreso */
-    --ion-color-secondary: #0d490c; /* Azul para confianza */
-    --ion-color-tertiary: #FF9800;  /* Naranja para energía */
-  
-    // Puedes agregar más colores si es necesario
-  }
-  
+  // Colores para el tema claro
+  --ion-color-primary: #00cc66e5;
+  /* Verde para progreso */
+  --ion-color-secondary: #057703;
+  /* Azul para confianza */
+  --ion-color-tertiary: #FF9800;
+  /* Naranja para energía */
+
+  // Puedes agregar más colores si es necesario
+
+  // Colores tema oscuro
+  //$background-color: #a179c4;
+}
+
+ion-content {
+  --background: #002244;
+
+}
