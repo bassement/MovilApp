@@ -25,7 +25,7 @@
           corporal, esto según la Organización Mundial de la Salud (OMS).
           <ion-item lines="none">
             <ion-label>Seleccionar hábito: Alimentación Saludable</ion-label>
-            <ion-checkbox slot="end"></ion-checkbox>
+            <ion-checkbox class="animated-checkbox" slot="end" (ionChange)="presentLoading($event)"></ion-checkbox>
           </ion-item>
         </div>
       </ion-accordion>
@@ -50,7 +50,7 @@
           riesgo de enfermedades crónicas.
           <ion-item lines="none">
             <ion-label>Seleccionar hábito: Alimentación Saludable</ion-label>
-            <ion-checkbox slot="end"></ion-checkbox>
+            <ion-checkbox class="animated-checkbox" slot="end" (ionChange)="presentLoading($event)"></ion-checkbox>
           </ion-item>
         </div>
       </ion-accordion>
@@ -77,7 +77,7 @@
           <!-- Checkbox -->
           <ion-item lines="none">
             <ion-label>Seleccionar hábito: Cuida tu IMC</ion-label>
-            <ion-checkbox slot="end"></ion-checkbox>
+            <ion-checkbox class="animated-checkbox" slot="end" (ionChange)="presentLoading($event)"></ion-checkbox>
           </ion-item>
         </div>
       </ion-accordion>
@@ -107,7 +107,7 @@
           <!-- Checkbox -->
           <ion-item lines="none">
             <ion-label>Seleccionar hábito: Horas de sueño</ion-label>
-            <ion-checkbox slot="end"></ion-checkbox>
+            <ion-checkbox class="animated-checkbox" slot="end" (ionChange)="presentLoading($event)"></ion-checkbox>
           </ion-item>
         </div>
       </ion-accordion>

@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-recommendations',
   templateUrl: './recommendations.page.html',
   styleUrls: ['./recommendations.page.scss'],
 })
-export class RecommendationsPage implements OnInit {
+export class RecommendationsPage {
+  constructor(private loadingController: LoadingController) { }
 
-  constructor() { }
+  async presentLoading(event: any) {
+    if (event.detail.checked) {
+      const loading = await this.loadingController.create({
+        message: 'Agregando',
+        duration: 400,
+        spinner: 'lines-sharp',
+      });
 
-  ngOnInit() {
+      await loading.present();
+
+
+      const { role, data } = await loading.onDidDismiss();
+      console.log('Loading dismissed!');
+    }
   }
-
 }

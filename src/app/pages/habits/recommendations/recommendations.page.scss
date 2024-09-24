@@ -69,3 +69,22 @@ ion-item {
 .ion-padding {
     padding: 10px;
 }
+
+.animated-checkbox {
+    --background: #fff;
+    --border-color: #72df72;
+    --checkmark-color: transparent;
+    --transition: all 0.3s ease-in-out;
+    margin-right: 10px; // Espaciado adicional
+
+    // Efecto de brillo en estado normal
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+    transform: scale(1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+ion-loading {
+    --spinner-color: #72df72;
+    --background: rgba(255, 255, 255, 0.8);
+    --message-color: #0a330d;
+}
