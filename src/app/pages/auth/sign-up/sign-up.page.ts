@@ -35,10 +35,9 @@ export class SignUpPage implements OnInit {
           }, {
             text: 'Aceptar',
             handler: () => {
-              // Lógica para manejar la creación del usuario
+              // creación del usuario
               console.log('Usuario creado con éxito');
-              // Aquí puedes agregar lógica para enviar el formulario o proceder con la creación del usuario
-              this.sendForm();  // Llama a la función que maneja el envío del formulario
+              this.sendForm();  
             }
           }
         ],
@@ -47,7 +46,7 @@ export class SignUpPage implements OnInit {
 
       await alert.present();
     } else {
-      // Mostrar errores de validación si el formulario no es válido
+      //formulario no es valido
       console.log('Formulario no válido');
     }
   }
@@ -55,6 +54,6 @@ export class SignUpPage implements OnInit {
   // Función para enviar el formulario
   sendForm() {
     console.log('Formulario enviado:', this.form.value);
-    // Aquí puedes agregar lógica para enviar los datos del formulario a un servidor o realizar otras acciones
+    
   }
 }
