@@ -83,5 +83,35 @@
       </ion-accordion>
     </ion-card>
 
+    <!-- HOras de sueño Card -->
+    <ion-card>
+      <img alt="Imagen donde de un reloj antiguo" src="/assets/img/reloj.jpg" />
+
+      <ion-card-header>
+        <ion-card-title>Horas de sueño</ion-card-title>
+        <ion-card-subtitle>¿Es importante dormir?</ion-card-subtitle>
+      </ion-card-header>
+
+      <!-- Acordeón Horas de sueño -->
+      <ion-accordion value="Sleep">
+        <ion-item slot="header" color="light">
+          <ion-label>Más información</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <!-- Contenido del acordeón -->
+          Dormir es fundamental para mantener una buena salud física y mental, ya que ayuda en la recuperación del
+          cuerpo, el fortalecimiento del sistema inmunológico y mejora el rendimiento cognitivo. Se recomienda dormir
+          entre 7 y 9 horas diarias, mantener horarios regulares, crear un ambiente tranquilo para descansar y evitar el
+          uso de dispositivos electrónicos antes de dormir. Una rutina de sueño adecuada puede prevenir enfermedades y
+          mejorar la calidad de vida.
+          <!-- Checkbox -->
+          <ion-item lines="none">
+            <ion-label>Seleccionar hábito: Horas de sueño</ion-label>
+            <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </ion-card>
+
   </ion-accordion-group>
 </ion-content>

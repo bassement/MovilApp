@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  
 
-  
+
+
   {
     path: '',
     redirectTo: 'auth', //cambiar ruta de home(yanoexiste) a auth
@@ -12,15 +12,15 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthPageModule)
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule)
   },
   {
     path: 'habits',
-    loadChildren: () => import('./pages/habits/habits.module').then( m => m.HabitsPageModule)
+    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)
 
   },
 
- 
+
 ];
 
 @NgModule({
@@ -30,3 +30,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
