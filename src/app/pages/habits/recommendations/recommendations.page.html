@@ -3,47 +3,85 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <img alt="Botella plastica de 500cc sirviendo agua en un vaso de cristal" src="assets/img/Water_Bottle_Tumbler" />
+  <!-- Accordion Group -->
+  <ion-accordion-group>
 
-    <ion-card-header>
-      <ion-card-title>Bebe Agua</ion-card-title>
-      <ion-card-subtitle>¿Cuánta agua debo consumir?</ion-card-subtitle>
-    </ion-card-header>
+    <!-- Bebe Agua Card -->
+    <ion-card>
+      <img alt="Botella plastica de 500cc sirviendo agua en un vaso de cristal" src="/assets/img/vaso_agua.jpg" />
 
-    <ion-card-content>
-      Es recomendado diariamente, para gran parte de los adultos es de 30ml - 35ml de agua por kilogramo de peso
-      corporal, esto según la Organización Mundial de la Salud (OMS).
-    </ion-card-content>
-  </ion-card>
+      <ion-card-header>
+        <ion-card-title>Bebe Agua</ion-card-title>
+        <ion-card-subtitle>¿Cuánta agua debo consumir?</ion-card-subtitle>
+      </ion-card-header>
 
-  <ion-card>
-    <img alt="Botella plastica de 500cc sirviendo agua en un vaso de cristal"
-      src="https://ionicframework.com/src/assets/img/Water_Bottle_Tumbler.jpg" />
+      <!-- Accordion for More Information -->
+      <ion-accordion value="agua">
+        <ion-item slot="header" color="light">
+          <ion-label>Más información</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Es recomendado diariamente, para gran parte de los adultos es de 30ml a 35ml de agua por kilogramo de peso
+          corporal, esto según la Organización Mundial de la Salud (OMS).
+          <ion-item lines="none">
+            <ion-label>Seleccionar hábito: Alimentación Saludable</ion-label>
+            <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </ion-card>
 
-    <ion-card-header>
-      <ion-card-title>Bebe Agua</ion-card-title>
-      <ion-card-subtitle>¿Cuánta agua debo consumir?</ion-card-subtitle>
-    </ion-card-header>
+    <!-- Alimentación Saludable Card -->
+    <ion-card>
+      <img alt="Imagen donde se ven distintos alimentos saludables" src="/assets/img/health_food.jpg" />
 
-    <ion-card-content>
-      Es recomendado diariamente, para gran parte de los adultos es de 30ml - 35ml de agua por kilogramo de peso
-      corporal, esto según la Organización Mundial de la Salud (OMS).
-    </ion-card-content>
-  </ion-card>
+      <ion-card-header>
+        <ion-card-title>Alimentación Saludable</ion-card-title>
+        <ion-card-subtitle>¿Como debo componer mi alimentación?</ion-card-subtitle>
+      </ion-card-header>
 
-  <ion-card>
-    <img alt="Botella plastica de 500cc sirviendo agua en un vaso de cristal"
-      src="src/assets/img/Water_Bottle_Tumbler.jpg" />
+      <!-- Acordeón Alimentación Saludable -->
+      <ion-accordion value="alimentacion">
+        <ion-item slot="header" color="light">
+          <ion-label>Más información</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Comer al menos 5 frutas o verduras al día mejora la digestión, fortalece el sistema inmunológico y reduce el
+          riesgo de enfermedades crónicas.
+          <ion-item lines="none">
+            <ion-label>Seleccionar hábito: Alimentación Saludable</ion-label>
+            <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </ion-card>
 
-    <ion-card-header>
-      <ion-card-title>Bebe Agua</ion-card-title>
-      <ion-card-subtitle>¿Cuánta agua debo consumir?</ion-card-subtitle>
-    </ion-card-header>
+    <!-- Cuida tu IMC Card -->
+    <ion-card>
+      <img alt="Imagen donde se ve una escala indicando los índices de IMC" src="/assets/img/imc_image.jpg" />
 
-    <ion-card-content>
-      Es recomendado diariamente, para gran parte de los adultos es de 30ml - 35ml de agua por kilogramo de peso
-      corporal, esto según la Organización Mundial de la Salud (OMS).
-    </ion-card-content>
-  </ion-card>
+      <ion-card-header>
+        <ion-card-title>Cuida tu IMC</ion-card-title>
+        <ion-card-subtitle>¿Cual es mi rango óptimo?</ion-card-subtitle>
+      </ion-card-header>
+
+      <!-- Acordeón Cuida tu IMC -->
+      <ion-accordion value="imc">
+        <ion-item slot="header" color="light">
+          <ion-label>Más información</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <!-- Contenido del acordeón -->
+          El Índice de Masa Corporal (IMC) es una medida que relaciona el peso y la altura de una persona para estimar
+          si tiene un peso saludable.
+          <!-- Checkbox -->
+          <ion-item lines="none">
+            <ion-label>Seleccionar hábito: Cuida tu IMC</ion-label>
+            <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+        </div>
+      </ion-accordion>
+    </ion-card>
+
+  </ion-accordion-group>
 </ion-content>

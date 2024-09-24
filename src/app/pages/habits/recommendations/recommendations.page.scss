@@ -12,3 +12,60 @@ ion-card {
         font-family: sans-serif;
     }
 }
+
+ion-card img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+ion-accordion-group {
+    ion-accordion {
+
+        // CEncabezado acordeon
+        ion-item[slot="header"] {
+            background-color: #4CAF50;
+            color: #c4b7de;
+            font-weight: bold;
+        }
+
+        // Contenido acordeon
+        div[slot="content"] {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 16px;
+        }
+
+        // bordes acordeon
+        ion-item {
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(68, 235, 3, 0.507);
+        }
+    }
+}
+
+ion-checkbox {
+    --background: #72df72;
+    /* Color de fondo cuando no está marcado */
+    --border-color: #72df72;
+    /* Color del borde */
+    --checkmark-color: white;
+    /* Color de la marca de verificación */
+    margin-left: 10px;
+    /* Espaciado entre el checkbox y el contenido */
+    --size: 24px;
+    /* Tamaño del checkbox */
+}
+
+ion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    /* Espaciado entre los ítems del acordeón */
+}
+
+.ion-padding {
+    padding: 10px;
+}

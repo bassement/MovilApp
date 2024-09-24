@@ -9,6 +9,8 @@ import { RecommendationsPageRoutingModule } from './recommendations-routing.modu
 import { RecommendationsPage } from './recommendations.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,8 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     IonicModule,
     RecommendationsPageRoutingModule,
     SharedModule
-    
+
   ],
   declarations: [RecommendationsPage]
 })
-export class RecommendationsPageModule {}
+export class RecommendationsPageModule { }
