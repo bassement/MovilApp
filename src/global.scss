@@ -67,25 +67,25 @@ ion-button {
     text-transform: none;
 }
 
-// safe padding for ios
-.safe-p-bottom{
-    padding-bottom: constant(safe-area-inset-bottom); // for ios 13+
-    padding-bottom: env(safe-area-inset-bottom); // for previous ios versions
-}
+// // safe padding for ios
+// .safe-p-bottom{
+//     padding-bottom: constant(safe-area-inset-bottom); // for ios 13+
+//     padding-bottom: env(safe-area-inset-bottom); // for previous ios versions
+// }
 
-.submit {
-    margin-top: 40px;
-}
+// .submit {
+//     margin-top: 40px;
+// }
 
-.empty {
-    text-align: center;
-    padding: 60px;
-    opacity: 30%;
+// .empty {
+//     text-align: center;
+//     padding: 60px;
+//     opacity: 30%;
 
-    ion-icon {
-        font-size: 100px;
-    }
-}
+//     ion-icon {
+//         font-size: 100px;
+//     }
+// }
 
 .d-flex-center {
     display: flex;
@@ -125,38 +125,7 @@ ion-button {
     padding: 20px;
 }
 
-.product-item {
-    --padding-top: 20px;
 
-    ion-avatar {
-        width: 70px;
-        height: 80px;
-        --border-radius: 15px;
-    }
-
-    .name {
-        font-weight: 600;
-        padding-bottom: 5px;
-    }
-
-    .data {
-        font-size: 13px;
-
-        strong {
-            font-weight: 500;
-        }
-    }
-
-    .option-btn {
-        font-size: 27px;
-    }
-
-    ion-chip {
-        font-size: 14px;
-        border-radius: 10px;
-        margin-left: 0;
-    }
-}
 
 @media (min-width: 769px) {
     .auth-form {
