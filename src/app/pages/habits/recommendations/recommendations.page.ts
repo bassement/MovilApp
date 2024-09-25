@@ -7,12 +7,14 @@ import { HabitService } from 'src/app/services/habit.service';
   templateUrl: './recommendations.page.html',
   styleUrls: ['./recommendations.page.scss'],
 })
+
 export class RecommendationsPage {
   constructor(
     private loadingController: LoadingController,
     private habitService: HabitService
   ) { }
 
+  //Spiner de carga checkbox
   async presentLoading(event: any) {
     if (event.detail.checked) {
       const loading = await this.loadingController.create({
@@ -25,6 +27,7 @@ export class RecommendationsPage {
     }
   }
 
+  //Intento service habit
   onHabitChange(habit: string, event: any) {
     if (event.detail.checked) {
       this.habitService.addHabit(habit);
