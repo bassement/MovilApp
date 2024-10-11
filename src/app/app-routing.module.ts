@@ -18,7 +18,11 @@ const routes: Routes = [
     path: 'habits',
     loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)
 
+  },  {
+    path: 'user-questions',
+    loadChildren: () => import('./user-questions/user-questions.module').then( m => m.UserQuestionsPageModule)
   },
+
 
 
 ];
