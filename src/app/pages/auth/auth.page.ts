@@ -16,6 +16,11 @@ export class AuthPage implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
+  loginOptions = [
+    { label: 'Recuperar Contraseña', action: () => this.router.navigate(['/forgot-password']) },
+    { label: 'Registrarse', action: () => this.router.navigate(['/sign-up']) }
+  ];
+
   constructor(private router: Router) { } // login provisorio a la pagina habits
 
   ngOnInit() {

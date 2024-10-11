@@ -11,5 +11,19 @@
       <div class="admin">HabbitApp</div>
     </ion-title>
 
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleDropdown()">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+
+      <!-- Dropdown con opciones -->
+      <ion-list *ngIf="showDropdown">
+        <ion-item *ngFor="let option of options" (click)="option.action()">
+          {{ option.label }}
+        </ion-item>
+      </ion-list>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
+

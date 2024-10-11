@@ -1,3 +1,36 @@
 .admin{
     font-size: 13px;
 }
+
+ion-toolbar {
+    position: relative; // Asegura que el dropdown se posicione relativo al toolbar
+  }
+  
+  ion-list {
+    position: absolute;
+    top: 100%; // Para que aparezca justo debajo del botón de configuración
+    right: 0;
+    background-color: rgb(51, 84, 16); // Fondo blanco para resaltar el menú
+    border-radius: 8px; // Bordes redondeados
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // Sombra suave
+    z-index: 9999; // Asegura que esté encima de todo
+    width: 180px; // Tamaño del menú desplegable
+  }
+  
+  ion-item {
+    padding: 10px 15px; // Espaciado interno de los ítems
+    cursor: pointer; // Cambiar el cursor a pointer
+  }
+  
+  ion-item:hover {
+    background-color: #f0f0f0; // Cambiar el color de fondo al pasar el mouse
+  }
+  
+  ion-button {
+    position: relative; // Para manejar la posición del icono correctamente
+  }
+  
+  ion-icon {
+    font-size: 24px; // Tamaño más grande del icono
+  }
+  

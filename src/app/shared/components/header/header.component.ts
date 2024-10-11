@@ -8,10 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent  implements OnInit {
 
   @Input () title!: string; //pasar parametros a title *!* para no estar inicalizado
-  constructor() { }
-
   @Input() backUrl: string = ''; // Parámetro opcional para la URL de retroceso
+  @Input() options: {label: string, action: () => void}[] = []; // Nuevas opciones dinámicas
 
+  showDropdown = false; // Estado del dropdown
+
+  constructor() { }
   ngOnInit() {}
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
 
 }
