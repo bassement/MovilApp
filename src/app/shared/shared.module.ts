@@ -5,13 +5,14 @@ import { CustomInputComponent } from './components/custom-input/custom-input.com
 import { LogoComponent } from './components/logo/logo.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+// import { trigger, state, style, transition, animate } from '@angular/animations';
+import { PopoverOptionsComponent } from './components/popover-options/popover-options.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, CustomInputComponent,LogoComponent],
+  declarations: [HeaderComponent, CustomInputComponent,LogoComponent,PopoverOptionsComponent],
 
-  exports: [HeaderComponent, CustomInputComponent,LogoComponent,ReactiveFormsModule],
+  exports: [HeaderComponent, CustomInputComponent,LogoComponent,ReactiveFormsModule,PopoverOptionsComponent],
 
   imports: [
     CommonModule,

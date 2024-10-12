@@ -26,6 +26,11 @@ export class AuthPage implements OnInit {
   ngOnInit() {
   }
 
+  options = [
+    { label: 'Ayuda', action: () => console.log('Ayuda seleccionada') },
+    { label: 'Acerca de', action: () => console.log('Acerca de seleccionada') }
+  ];
+
   submit() {
     if (this.form.valid) {
       console.log(this.form.value);

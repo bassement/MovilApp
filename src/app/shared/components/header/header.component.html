@@ -1,28 +1,28 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
 
-    <!-- Botón de retroceso que se muestra si hay una URL de retroceso -->
+    <!-- Botón de retroceso que se muestra solo sihay una URL de retroceso -->
     <ion-buttons slot="start" *ngIf="backUrl">
       <ion-back-button [defaultHref]="backUrl"></ion-back-button>
     </ion-buttons>
 
+
+
+    <!-- titulocomo variable -->
     <ion-title> 
       <strong> {{ title }} </strong>
       <div class="admin">HabbitApp</div>
     </ion-title>
 
+
+    <!-- popoveropciones -->
     <ion-buttons slot="end">
-      <ion-button (click)="toggleDropdown()">
+      <ion-button (click)="openOptions($event)">
         <ion-icon name="settings-outline"></ion-icon>
       </ion-button>
-
-      <!-- Dropdown con opciones -->
-      <ion-list *ngIf="showDropdown">
-        <ion-item *ngFor="let option of options" (click)="option.action()">
-          {{ option.label }}
-        </ion-item>
-      </ion-list>
     </ion-buttons>
+
+    
 
   </ion-toolbar>
 </ion-header>

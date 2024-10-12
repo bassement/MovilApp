@@ -1,23 +1,32 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { PopoverOptionsComponent } from '../popover-options/popover-options.component';
 
 @Component({
-  selector: 'app-header', //copiar y pegar para utilizar el componente
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent  implements OnInit {
+export class HeaderComponent implements OnInit {
 
-  @Input () title!: string; //pasar parametros a title *!* para no estar inicalizado
-  @Input() backUrl: string = ''; // Parámetro opcional para la URL de retroceso
-  @Input() options: {label: string, action: () => void}[] = []; // Nuevas opciones dinámicas
+  @Input() title!: string;
+  @Input() backUrl: string = '';
+  @Input() options: { label: string, action: () => void }[] = []; // Las opciones para el popover
 
-  showDropdown = false; // Estado del dropdown
+  constructor(private popoverController: PopoverController) {}
 
-  constructor() { }
   ngOnInit() {}
 
-  toggleDropdown() {
-    this.showDropdown = !this.showDropdown;
+  async openOptions(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverOptionsComponent, // Utilizamos un componente para el contenido del popover
+      event: ev,
+      translucent: true,
+      cssClass: 'custom-popover',
+      componentProps: {
+        options: this.options // Pasamos las opciones como props
+      }
+    });
+    return await popover.present();
   }
-
 }
