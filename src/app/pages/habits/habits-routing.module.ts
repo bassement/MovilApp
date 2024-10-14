@@ -7,10 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: HabitsPage
-  },  {
-    path: 'recommendations',
-    loadChildren: () => import('./recommendations/recommendations.module').then( m => m.RecommendationsPageModule)
   },
+  // {
+  //   path: 'recommendations',
+  //   loadChildren: () => import('./recommendations/recommendations.module').then( m => m.RecommendationsPageModule)
+  // },
   {
     path: 'custom-habits',
     loadChildren: () => import('./custom-habits/custom-habits.module').then( m => m.CustomHabitsPageModule)
