@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; // Importa el Router
 import { FirebaseService } from 'src/app/services/firebase.service';
 import {User} from 'src/app/models/user.model'
+import { UtilsService } from 'src/app/services/utils.service';
 
 
 @Component({
@@ -19,8 +20,9 @@ export class AuthPage implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-  //inyectar servicio de firebase
-firebaseSvc = inject(FirebaseService)
+  
+firebaseSvc = inject(FirebaseService); //inyectar servicio de firebase
+utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla como funcion
 
   loginOptions = [
     { label: 'Recuperar Contraseña', action: () => this.router.navigate(['/forgot-password']) },
@@ -51,12 +53,13 @@ firebaseSvc = inject(FirebaseService)
   // }
 
 
-  submit() {
+  //funcion asincrona
+  async submit() {
     if (this.form.valid) {
       this.firebaseSvc.signIn(this.form.value as User).then(res => {
         console.log(res)
       });
-      //redireccioonamiento a
+      //redireccioonamiento a habts
       this.router.navigate(['/habits']);
     } else {
       console.log('Formulario inválido');
