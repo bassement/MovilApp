@@ -27,7 +27,6 @@ export class FirebaseService {
   //actualizar Usarioio
   updateUser(displayName: string){
     return updateProfile(getAuth().currentUser,{displayName})
-
   }
 
 
