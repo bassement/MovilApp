@@ -19,7 +19,7 @@ export class FirebaseService {
 
   //creacion de usuario----------
   signUp(user:User) {
-    return signInWithEmailAndPassword(getAuth(), user.email, user.password)
+    return createUserWithEmailAndPassword(getAuth(), user.email, user.password)
   }
 
 
