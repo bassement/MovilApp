@@ -58,15 +58,35 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
       await loading.present();
-      
+
       this.firebaseSvc.signIn(this.form.value as User).then(res => {
         console.log(res)
-      });
-      //redireccioonamiento a habts
-      this.router.navigate(['/habits']);
-    } else {
-      console.log('Formulario inválido');
-    }
+        //capturar error
+      }).catch(error => {
+        console.log(error);
+
+
+        //error de firebase, cambiar 
+        this.utilsSvc.presentToast({
+          message: 'error.message',
+          duration: 2500,
+          color: 'primary',
+          position: 'middle',
+          icon: 'alert-circle-outline'
+
+        })
+
+        //terminar ejecucion de funcion
+      }).finally(() =>  {
+        loading.dismiss();
+      })
+
+      
+
+
+      
+      
+    } 
   }
 
 }
