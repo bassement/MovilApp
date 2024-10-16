@@ -53,9 +53,12 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
   // }
 
 
-  //funcion asincrona
+  //funcion asincrona, (se puede tardar, se crea un loading)
   async submit() {
     if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+      
       this.firebaseSvc.signIn(this.form.value as User).then(res => {
         console.log(res)
       });
