@@ -74,3 +74,9 @@ ion-fab-button {
   height: 200px; // Ajusta la altura del botón
   font-size: 24px; // Ajusta el tamaño del ícono dentro del botón (si usas un ícono de texto)
 }
+
+ion-fab-button {
+  ion-icon {
+    font-size: 70px;
+  }
+}

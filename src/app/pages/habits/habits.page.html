@@ -6,10 +6,31 @@
   <!-- FAB centrado -->
   <ion-fab vertical="center" horizontal="center">
     <ion-fab-button (click)="openOptions()">
-      <img src="/assets/icon/favicon.png" alt="Descripción de la imagen">
+      <!-- Mostramos el ícono basado en la opción seleccionada -->
+      <img *ngIf="!selectedHabit" src="/assets/icon/favicon.png" alt="Descripción de la imagen"
+        style="width: 50px; height: 50px;">
+      <ion-icon *ngIf="selectedHabit === 'water'" name="water-outline" style="font-size: 50px;"></ion-icon>
+      <ion-icon *ngIf="selectedHabit === 'sleep'" name="bed-outline" style="font-size: 50px;"></ion-icon>
+      <ion-icon *ngIf="selectedHabit === 'exercise'" name="barbell-outline" style="font-size: 50px;"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <!-- CRDS REDIRECCION A LAS PAGINAS 
+
+  <!-- Progreso por opción -->
+  <div class="progress-container">
+    <div *ngIf="selectedHabit === 'water'">
+      <p>Progreso de agua: {{ waterProgress }}%</p>
+    </div>
+    <div *ngIf="selectedHabit === 'sleep'">
+      <p>Progreso de sueño: {{ sleepProgress }} horas</p>
+    </div>
+    <div *ngIf="selectedHabit === 'exercise'">
+      <p>Progreso de ejercicio: {{ exerciseProgress }} horas</p>
+    </div>
+  </div>
+</ion-content>
+
+
+<!--
   <div class="card-container">
     <ion-card routerLink="/habits/recommendations">
       <ion-card-header>
@@ -20,7 +41,6 @@
       </ion-card-content>
     </ion-card>
 
-    <!--Tarjeta de Hábitos Propios
     <ion-card routerLink="/habits/custom-habits">
       <ion-card-header>
         <ion-card-title>Personalizados</ion-card-title>
@@ -30,7 +50,6 @@
       </ion-card-content>
     </ion-card>
 
-    <!-- de Seguimiento
     <ion-card routerLink="/habits/tracking">
       <ion-card-header>
         <ion-card-title>Seguimiento de Hábitos</ion-card-title>
@@ -39,5 +58,5 @@
         Monitorea tu progreso.
       </ion-card-content>
     </ion-card>
-  </div>-->
-</ion-content>
+  </div>
+  -->

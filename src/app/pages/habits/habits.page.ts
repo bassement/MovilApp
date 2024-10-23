@@ -7,6 +7,12 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./habits.page.scss'],
 })
 export class HabitsPage {
+  selectedHabit: string = ''; // Variable para almacenar el hábito seleccionado
+
+  waterProgress: number = 0;
+  sleepProgress: number = 0;
+  exerciseProgress: number = 0;
+
   constructor(private actionSheetCtrl: ActionSheetController) { }
 
   async openOptions() {
@@ -15,23 +21,26 @@ export class HabitsPage {
       buttons: [
         {
           text: 'Agua',
+          icon: 'water',
           handler: () => {
-            console.log('Seleccionado: Agua');
-            // Aquí puedes agregar la lógica para el hábito de agua
+            this.selectedHabit = 'water';
+            this.waterProgress += 10; // Incrementa el progreso del agua
           },
         },
         {
           text: 'Sueño',
+          icon: 'moon',
           handler: () => {
-            console.log('Seleccionado: Sueño');
-            // Aquí puedes agregar la lógica para el hábito de sueño
+            this.selectedHabit = 'sleep';
+            this.sleepProgress += 1; // Incrementa el progreso del sueño en horas
           },
         },
         {
           text: 'Ejercicio',
+          icon: 'barbell',
           handler: () => {
-            console.log('Seleccionado: Ejercicio');
-            // Aquí puedes agregar la lógica para el hábito de ejercicio
+            this.selectedHabit = 'exercise';
+            this.exerciseProgress += 1; // Incrementa el progreso del ejercicio en horas
           },
         },
         {
