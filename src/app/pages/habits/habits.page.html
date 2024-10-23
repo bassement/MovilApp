@@ -1,14 +1,16 @@
 <ion-header>
-  <app-header title="Mis Hábitos"> </app-header>
+  <app-header title="Mis Hábitos"></app-header>
 </ion-header>
 
-
-
-
 <ion-content>
-  <div class="d-flex-center habit-container">
-
-    <!-- Tarjeta de Recomendaciones -->
+  <!-- FAB centrado -->
+  <ion-fab vertical="center" horizontal="center">
+    <ion-fab-button (click)="openOptions()">
+      <img src="/assets/icon/favicon.png" alt="Descripción de la imagen">
+    </ion-fab-button>
+  </ion-fab>
+  <!-- CRDS REDIRECCION A LAS PAGINAS 
+  <div class="card-container">
     <ion-card routerLink="/habits/recommendations">
       <ion-card-header>
         <ion-card-title>Recomendaciones</ion-card-title>
@@ -18,7 +20,7 @@
       </ion-card-content>
     </ion-card>
 
-    <!-- Tarjeta de Hábitos Propios -->
+    <!--Tarjeta de Hábitos Propios
     <ion-card routerLink="/habits/custom-habits">
       <ion-card-header>
         <ion-card-title>Personalizados</ion-card-title>
@@ -28,7 +30,7 @@
       </ion-card-content>
     </ion-card>
 
-    <!-- Tarjeta de Seguimiento -->
+    <!-- de Seguimiento
     <ion-card routerLink="/habits/tracking">
       <ion-card-header>
         <ion-card-title>Seguimiento de Hábitos</ion-card-title>
@@ -37,6 +39,5 @@
         Monitorea tu progreso.
       </ion-card-content>
     </ion-card>
-
-  </div>
+  </div>-->
 </ion-content>
