@@ -1,13 +1,138 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>swiper</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">swiper</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <swiper-container>
+
+    <swiper-slide>
+
+      <ion-row>
+
+        <ion-col>
+
+          <p id="bienvenido">Bienvenid&#64; a</p>
+
+          <p id="tituloapp" class="tracking-in-expand">HabitApp</p>
+
+        </ion-col>
+
+      </ion-row>
+
+
+
+      <div class="container">
+
+        <lottie-player slot="end" autoplay loop src="lottie.host/96ae8aa8-0a5f-4f99-8752-53db3289c542/DgjniWN2ew.json">
+
+        </lottie-player>
+
+      </div>
+
+
+
+      <ion-row>
+
+        <ion-col id="labelsesion2" class="text-focus-in">
+
+          <ion-label>Todo-APP es una aplicación que te ayudará a organizarte dia a dia,
+
+            proponerte metas y tareas que debes cumplir, y generar un compromiso
+
+            contigo mismo.
+
+          </ion-label>
+
+        </ion-col>
+
+      </ion-row>
+
+    </swiper-slide>
+
+
+
+    <swiper-slide>
+
+      <div class="container flex justify-center items-center">
+
+        <lottie-player class="w-64 mt-36" slot="end" autoplay loop
+          src="lottie.host/3c953b7e-f246-470c-b53d-bb0dcb855e29/PuDKvycVSG.json">
+
+        </lottie-player>
+
+      </div>
+
+
+
+      <ion-row>
+
+        <ion-col id="detalles" class="text-focus-in">
+
+          <ion-label>Organiza tus tareas por dia, observa cuantas tareas haz realizado,
+
+            y mucho más!</ion-label>
+
+        </ion-col>
+
+      </ion-row>
+
+    </swiper-slide>
+
+
+
+    <swiper-slide>
+
+      <div class="container">
+
+        <lottie-player slot="end" autoplay loop src="lottie.host/4ffe932c-efeb-4159-9472-437441802494/Yweg43AAov.json">
+
+        </lottie-player>
+
+      </div>
+
+
+
+      <ion-row>
+
+        <ion-col id="labelsesion" class="text-focus-in">
+
+          <ion-label>Tu tracker de tareas</ion-label>
+
+          <br />
+
+          <ion-label>justo en tu bolsillo</ion-label>
+
+          <br />
+
+          <ion-label>:)</ion-label>
+
+        </ion-col>
+
+      </ion-row>
+
+
+
+      <div>
+
+        <ion-row>
+
+          <ion-col>
+
+            <ion-button color="primary" class="buttoncolors text-focus-in" expand="block" routerLink="/register"
+              shape="round">Crear una cuenta</ion-button>
+
+          </ion-col>
+
+          <ion-col>
+
+            <ion-button color="primary" class="buttoncolors text-focus-in" expand="block" routerLink="/login"
+              shape="round">Iniciar Sesión</ion-button>
+
+          </ion-col>
+
+        </ion-row>
+
+      </div>
+
+    </swiper-slide>
+
+  </swiper-container>
+
 </ion-content>

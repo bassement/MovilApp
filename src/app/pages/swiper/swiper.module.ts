@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,6 +8,10 @@ import { SwiperPageRoutingModule } from './swiper-routing.module';
 
 import { SwiperPage } from './swiper.page';
 
+import { defineCustomElements } from '@teamhive/lottie-player/loader';
+
+defineCustomElements(window);
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +19,7 @@ import { SwiperPage } from './swiper.page';
     IonicModule,
     SwiperPageRoutingModule
   ],
-  declarations: [SwiperPage]
+  declarations: [SwiperPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SwiperPageModule {}
+export class SwiperPageModule { }
