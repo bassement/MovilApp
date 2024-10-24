@@ -7,7 +7,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'auth', //cambiar ruta de home(yanoexiste) a auth
+    redirectTo: 'swiper', //cambiar ruta de home(yanoexiste) a auth
     pathMatch: 'full'
   },
   {
@@ -18,20 +18,18 @@ const routes: Routes = [
     path: 'habits',
     loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)
 
-  },  {
-    path: 'error',
-    loadChildren: () => import('./pages/error/error.module').then( m => m.ErrorPageModule)
-  },
-  {
-    path: 'swiper',
-    loadChildren: () => import('./pages/swiper/swiper.module').then( m => m.SwiperPageModule)
-  },
-  {
-    path: 'splash',
-    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
   },
 
-  
+  {
+    path: 'swiper',
+    loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule)
+  },
+
+  //error al final
+  {
+    path: '**',
+    loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorPageModule)
+  },
 
 
 
