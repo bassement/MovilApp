@@ -17,7 +17,7 @@ export class UtilsService {
   }
 
   //toast implementar i-toast (funcion parcial automatica generada)
-  //tacosita recive un toastoption, hay que crearlo a
+  //tacosita recibe un toastoption
   async presentToast(opts?: ToastOptions) {
     const toast = await this.toastCtrl.create(opts);
     toast.present();
