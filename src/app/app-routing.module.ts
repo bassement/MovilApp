@@ -25,6 +25,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule)
   },
 
+  {
+    path: 'splash',
+    loadChildren: () => import('./pages/splash/splash.module').then(m => m.SplashPageModule)
+
+  },
+
   //error al final
   {
     path: '**',
