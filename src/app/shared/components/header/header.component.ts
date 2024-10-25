@@ -12,10 +12,13 @@ export class HeaderComponent implements OnInit {
   @Input() title!: string;
   @Input() backUrl: string = '';
   @Input() options: { label: string, action: () => void }[] = []; // Las opciones para el popover
+  @Input() blackbutton!: string;
+  @Input() isModal !: boolean;
+  @Input() showMenu !: boolean;
 
-  constructor(private popoverController: PopoverController) {}
+  constructor(private popoverController: PopoverController) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async openOptions(ev: any) {
     const popover = await this.popoverController.create({

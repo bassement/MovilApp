@@ -11,12 +11,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment.prod';
 
+//pal swiper chicken
+import { register } from 'swiper/element/bundle';
+
+register();
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     IonicModule.forRoot({ mode: "md" }),
-    AppRoutingModule,  //mode md para mantener el diseño a manera generals
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), //enviroment
 
   ],

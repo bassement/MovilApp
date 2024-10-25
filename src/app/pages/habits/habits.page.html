@@ -1,42 +1,38 @@
 <ion-header>
-  <app-header title="Mis Hábitos"> </app-header>
+  <app-header title="Mis Hábitos"></app-header>
 </ion-header>
 
-
-
-
 <ion-content>
-  <div class="d-flex-center habit-container">
+  <!-- Contenedor para el FAB con barra de progreso -->
+  <div class="fab-progress-container">
+    <!-- FAB centrado con ícono dinámico -->
+    <ion-fab vertical="center" horizontal="center">
+      <ion-fab-button (click)="openOptions()">
+        <img *ngIf="!selectedHabit" src="/assets/icon/favicon.png" alt="Descripción de la imagen"
+          style="width: 50px; height: 50px;">
+        <ion-icon *ngIf="selectedHabit === 'water'" name="water-outline" style="font-size: 50px;"></ion-icon>
+        <ion-icon *ngIf="selectedHabit === 'sleep'" name="bed-outline" style="font-size: 50px;"></ion-icon>
+        <ion-icon *ngIf="selectedHabit === 'exercise'" name="barbell-outline" style="font-size: 50px;"></ion-icon>
+      </ion-fab-button>
 
-    <!-- Tarjeta de Recomendaciones -->
-    <ion-card routerLink="/habits/recommendations">
-      <ion-card-header>
-        <ion-card-title>Recomendaciones</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Recibe sugerencias para hábitos saludables.
-      </ion-card-content>
-    </ion-card>
+      <!-- Barra de progreso circular alrededor del FAB -->
+      <div class="progress-circle">
+        <div class="circle-background"></div>
+        <div class="circle-progress" [ngStyle]="{ 'stroke-dashoffset': getProgressOffset() }"></div>
+      </div>
+    </ion-fab>
+  </div>
 
-    <!-- Tarjeta de Hábitos Propios -->
-    <ion-card routerLink="/habits/custom-habits">
-      <ion-card-header>
-        <ion-card-title>Personalizados</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Añade y personaliza tus propios hábitos.
-      </ion-card-content>
-    </ion-card>
-
-    <!-- Tarjeta de Seguimiento -->
-    <ion-card routerLink="/habits/tracking">
-      <ion-card-header>
-        <ion-card-title>Seguimiento de Hábitos</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Monitorea tu progreso.
-      </ion-card-content>
-    </ion-card>
-
+  <!-- Progreso según el hábito seleccionado -->
+  <div class="progress-container">
+    <div *ngIf="selectedHabit === 'water'">
+      <p>Progreso de agua: {{ waterProgress }}%</p>
+    </div>
+    <div *ngIf="selectedHabit === 'sleep'">
+      <p>Progreso de sueño: {{ sleepProgress }} horas</p>
+    </div>
+    <div *ngIf="selectedHabit === 'exercise'">
+      <p>Progreso de ejercicio: {{ exerciseProgress }} horas</p>
+    </div>
   </div>
 </ion-content>

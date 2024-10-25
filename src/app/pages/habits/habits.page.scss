@@ -58,3 +58,25 @@ ion-card-content {
 ion-content {
   background: linear-gradient(to bottom, #ffffff, #e0f7fa);
 }
+
+// Mover las tarjetas más abajo en la pantalla
+.card-container {
+  margin-top: 400px; // Incrementa el valor para mover las tarjetas más hacia abajo
+  padding: 20px;
+}
+
+ion-card {
+  margin-bottom: 20px; // Añadir espacio entre las tarjetas
+}
+
+ion-fab-button {
+  width: 200px; // Ajusta el ancho del botón
+  height: 200px; // Ajusta la altura del botón
+  font-size: 24px; // Ajusta el tamaño del ícono dentro del botón (si usas un ícono de texto)
+}
+
+ion-fab-button {
+  ion-icon {
+    font-size: 70px;
+  }
+}
