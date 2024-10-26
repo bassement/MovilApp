@@ -16,12 +16,20 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule)
   },
-  
 
   {
-    path: 'main',
-    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule)
+    path: 'habits',
+    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)
   },
+
+
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
+  },
+  
+
+ 
 
   
   // {
