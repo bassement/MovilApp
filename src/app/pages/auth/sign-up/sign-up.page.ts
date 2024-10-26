@@ -68,7 +68,7 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
       this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
         this.utilsSvc.saveInLocalStorage('user', this.form.value)
 
-        this.utilsSvc.routerLink('/main')
+        this.utilsSvc.routerLink('/habits')
 
         this.form.reset();
 

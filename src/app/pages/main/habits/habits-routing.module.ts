@@ -12,14 +12,8 @@ const routes: Routes = [
   //   path: 'recommendations',
   //   loadChildren: () => import('./recommendations/recommendations.module').then( m => m.RecommendationsPageModule)
   // },
-  {
-    path: 'custom-habits',
-    loadChildren: () => import('./custom-habits/custom-habits.module').then( m => m.CustomHabitsPageModule)
-  },
-  {
-    path: 'tracking',
-    loadChildren: () => import('./tracking/tracking.module').then( m => m.TrackingPageModule)
-  }
+  
+ 
 
 ];
 

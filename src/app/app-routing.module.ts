@@ -7,18 +7,28 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'swiper', //cambiar ruta de home(yanoexiste) a auth
+    redirectTo: 'swiper', //primera page de la app
     pathMatch: 'full'
   },
+
+
   {
     path: 'auth',
     loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule)
   },
-  {
-    path: 'habits',
-    loadChildren: () => import('./pages/main/habits/habits.module').then(m => m.HabitsPageModule)
+  
 
+  {
+    path: 'main',
+    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule)
   },
+
+  
+  // {
+  //   path: 'habits',
+  //   loadChildren: () => import('./pages/main/habits/habits.module').then(m => m.HabitsPageModule)
+
+  // },
 
   {
     path: 'swiper',
@@ -36,10 +46,7 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorPageModule)
   },
-  {
-    path: 'main',
-    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule)
-  },
+  
 
 
 
