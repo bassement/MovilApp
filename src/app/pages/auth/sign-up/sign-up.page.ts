@@ -14,6 +14,8 @@ import { AlertController } from '@ionic/angular';
 export class SignUpPage implements OnInit {
    //formulariots
    form = new FormGroup({
+
+    uid: new FormControl(''),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
@@ -52,7 +54,54 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
   // }
 
 
-  //funcion asincrona, (se puede tardar, se crea un loading)
+  //se recibe el uid, para luego pasarlo al path
+  async setUserInfo(uid: string) {
+    if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+
+      let path = `users/${uid}`
+      //borrar password para que no llegue a la BD
+      delete this.form.value.password;
+
+      this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
+        this.utilsSvc.saveInLocalStorage('user', this.form.value)
+
+        // await this.firebaseSvc.updateUser(this.form.value.name)
+        // console.log(res);
+        
+
+
+        //capturar error
+      }).catch(error => {
+        console.log(error);
+
+
+        //error de firebase, cambiar 
+        this.utilsSvc.presentToast({
+          message: 'error papito, era noma era',
+          duration: 2500,
+          color: 'primary',
+          position: 'middle',
+          icon: 'alert-circle-outline'
+
+        })
+
+        //terminar ejecucion de funcion
+      }).finally(() =>  {
+        loading.dismiss();
+      })
+
+      
+
+
+      
+      
+    } 
+  }
+//..----------------..
+//funcion asincrona, (se puede tardar, se crea un loading)
   async submit() {
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
