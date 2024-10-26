@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'habits',
-    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)
+    loadChildren: () => import('./pages/main/habits/habits.module').then(m => m.HabitsPageModule)
 
   },
 
@@ -36,6 +36,11 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorPageModule)
   },
+  {
+    path: 'main',
+    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule)
+  },
+
 
 
 
