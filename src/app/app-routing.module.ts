@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { noAuthGuard } from './guards/no-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 
@@ -14,19 +16,19 @@ const routes: Routes = [
 
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule)
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule), canActivate:[noAuthGuard]
   },
 
   {
     path: 'habits',
-    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)
+    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule), canActivate:[AuthGuard]
   },
 
 
-  {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
-  },
+  
+  //   path: 'profile',
+  //   loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
+  // },
   
 
  
