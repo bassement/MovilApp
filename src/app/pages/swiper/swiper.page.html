@@ -1,136 +1,139 @@
 <ion-content [fullscreen]="true">
-
   <swiper-container>
-
+    <!-- Slide de bienvenida y título -->
     <swiper-slide>
-
       <ion-row>
-
         <ion-col>
-
           <p id="bienvenido">Bienvenid&#64; a</p>
-
-          <p id="tituloapp" class="tracking-in-expand">HabitApp</p>
-
+          <p id="tituloapp" class="tracking-in-expand rotate-in">HabitApp</p>
         </ion-col>
-
       </ion-row>
 
-
-
       <div class="container">
-
-        <lottie-player slot="end" autoplay loop src="lottie.host/96ae8aa8-0a5f-4f99-8752-53db3289c542/DgjniWN2ew.json">
-
+        <lottie-player slot="end" autoplay loop style="width: 300px; height: 300px;"
+          src="https://lottie.host/cffef660-1b1f-4147-b703-0c3567bd1d61/lBvsglJzh1.json">
         </lottie-player>
-
       </div>
 
-
-
       <ion-row>
-
         <ion-col id="labelsesion2" class="text-focus-in">
-
-          <ion-label>HabbitApp es una aplicación que te ayudará a mejorar tus habitos,
-
-            cuidar tu salud y generar un compromiso
-
-            contigo mismo.
-
+          <ion-label>La aplicación que te ayudará a mejorar tus hábitos,
+            cuidar tu salud y generar un compromiso contigo mismo.
           </ion-label>
-
         </ion-col>
-
       </ion-row>
-
     </swiper-slide>
 
-
-
+    <!-- Slide de selección de objetivos -->
     <swiper-slide>
-
       <div class="container flex justify-center items-center">
-
-        <lottie-player class="w-64 mt-36" slot="end" autoplay loop
-          src="lottie.host/3c953b7e-f246-470c-b53d-bb0dcb855e29/PuDKvycVSG.json">
-
+        <lottie-player class="w-64 mt-36" autoplay loop style="width: 200px; height: 200px; margin-top: 250px;"
+          src="https://lottie.host/3c953b7e-f246-470c-b53d-bb0dcb855e29/PuDKvycVSG.json">
         </lottie-player>
-
       </div>
 
-
-
       <ion-row>
-
-        <ion-col id="detalles" class="text-focus-in">
-
-          <ion-label>Selecciona tus objetivos, agrega tus metas diarias y más </ion-label>
-
+        <ion-col id="tePreguntamos" class="text-focus-in">
+          <ion-label>Te haremos una serie de preguntas que nos ayudaran a darte mejores recomendaciones</ion-label>
         </ion-col>
-
       </ion-row>
-
     </swiper-slide>
 
-
-
+    <!-- Slide para preguntar la edad -->
     <swiper-slide>
+      <ion-row>
+        <ion-col>
+          <p id="preguntas">¿Cuál es tu edad?</p>
+          <ion-icon name="calendar-number" style="width: 100%; font-size: 50px; margin-top: 20px;"></ion-icon>
+          <ion-input type="number" placeholder="Ingresa tu edad" [(ngModel)]="userData.age"
+            style="margin-top: 20px; text-align: center;"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-button expand="block" (click)="saveData()" style="margin-left: 30px; margin-right: 30px;">Guardar
+        Edad</ion-button>
+    </swiper-slide>
 
+    <!-- Slide para sexooooo -->
+    <swiper-slide>
+      <ion-row>
+        <ion-col>
+          <p id="preguntas">¿Cuál es tu sexo?</p>
+          <ion-icon name="male-female" style="width: 100%; font-size: 50px; margin-top: 20px;"></ion-icon>
+          <ion-segment [(ngModel)]="userData.gender" style="margin-top: 20px; text-align: center;">
+            <ion-segment-button value="masculino">
+              <ion-label>Masculino</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="femenino">
+              <ion-label>Femenino</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+      <ion-button expand="block" (click)="saveData()" style="margin-left: 30px; margin-right: 30px;">Guardar
+        Sexo</ion-button>
+    </swiper-slide>
+
+    <!-- Slide para el peso papuuuu -->
+    <swiper-slide>
+      <ion-row>
+        <ion-col>
+          <p id="preguntas">¿Cuál es tu peso?</p>
+          <ion-icon name="barbell" style="width: 100%; font-size: 50px; margin-top: 20px;"></ion-icon>
+          <ion-input type="number" placeholder="Peso en kg" [(ngModel)]="userData.weight"
+            style="margin-top: 20px; text-align: center;"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-button expand="block" (click)="saveData()"
+        style="margin-left: 30px; margin-right: 30px; margin-top: 20px;">Guardar
+        Peso</ion-button>
+    </swiper-slide>
+
+    <!-- Slide para preguntar la altura -->
+    <swiper-slide>
+      <ion-row>
+        <ion-col>
+          <p id="preguntas">¿Cuánto mides?</p>
+          <ion-icon name="man" style="width: 100%; font-size: 50px; margin-top: 20px;"></ion-icon>
+          <ion-input type="number" placeholder="Altura en cm" [(ngModel)]="userData.height"
+            style="margin-top: 20px; text-align: center;"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-button expand="block" (click)="saveData()"
+        style="margin-left: 30px; margin-right: 30px; margin-top: 20px;">Guardar
+        Altura</ion-button>
+    </swiper-slide>
+
+    <!-- Slide final de inicio de sesión -->
+    <swiper-slide>
       <div class="container">
-
-        <lottie-player slot="end" autoplay loop src="lottie.host/4ffe932c-efeb-4159-9472-437441802494/Yweg43AAov.json">
-
+        <lottie-player autoplay loop style="width: 200px; height: 200px;"
+          src="https://lottie.host/4ffe932c-efeb-4159-9472-437441802494/Yweg43AAov.json">
         </lottie-player>
-
       </div>
 
-
-
       <ion-row>
-
         <ion-col id="labelsesion" class="text-focus-in">
-
-          <ion-label>Mejora tus habistos y vida saludable</ion-label>
-
+          <ion-label>Mejora tus hábitos y vida saludable</ion-label>
           <br />
-
           <ion-label>Al alcance de tu mano</ion-label>
-
           <br />
-
           <ion-label>:)</ion-label>
-
         </ion-col>
-
       </ion-row>
-
-
 
       <div>
-
         <ion-row>
-
           <ion-col>
-
             <ion-button color="primary" class="buttoncolors text-focus-in" expand="block" routerLink="/auth/sign-up"
               shape="round">Crear una cuenta</ion-button>
-
           </ion-col>
-
           <ion-col>
-
             <ion-button color="primary" class="buttoncolors text-focus-in" expand="block" routerLink="/auth"
               shape="round">Iniciar Sesión</ion-button>
-
           </ion-col>
-
         </ion-row>
-
       </div>
-
     </swiper-slide>
 
   </swiper-container>
-
 </ion-content>
