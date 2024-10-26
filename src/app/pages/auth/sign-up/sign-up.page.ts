@@ -68,6 +68,10 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
       this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
         this.utilsSvc.saveInLocalStorage('user', this.form.value)
 
+        this.utilsSvc.routerLink('/main')
+
+        this.form.reset();
+
         // await this.firebaseSvc.updateUser(this.form.value.name)
         // console.log(res);
         
@@ -110,7 +114,13 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
       this.firebaseSvc.signUp(this.form.value as User).then(async res => {
 
         await this.firebaseSvc.updateUser(this.form.value.name)
-        console.log(res);
+
+        let uid=res.user.uid;
+        this.form.controls.uid.setValue(uid);
+
+        this.setUserInfo(uid);
+
+
         
 
 
