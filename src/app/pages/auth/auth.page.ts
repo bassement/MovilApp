@@ -60,7 +60,71 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
       await loading.present();
 
       this.firebaseSvc.signIn(this.form.value as User).then(res => {
-        console.log(res)
+        //autenticacion pidiendo datos de firebase
+        this.getUserInfo(res.user.uid);
+
+
+
+        
+      }).catch(error => {
+        //capturar error
+        console.log(error);
+
+
+        //error de firebase, cambiar 
+        this.utilsSvc.presentToast({
+          message: 'error.message',
+          duration: 2500,
+          color: 'primary',
+          position: 'middle',
+          icon: 'alert-circle-outline'
+
+        })
+
+        //terminar ejecucion de funcion
+      }).finally(() =>  {
+        loading.dismiss();
+      })
+
+      
+
+
+      
+      
+    } 
+  }
+
+
+  async getUserInfo(uid: string) {
+    if (this.form.valid) {
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+
+      let path = `users/${uid}`;
+      
+
+      this.firebaseSvc.getDocument(path).then((user:User) => {
+        this.utilsSvc.saveInLocalStorage('user', user);
+
+        this.utilsSvc.routerLink('/habits');
+
+        this.form.reset();
+
+        this.utilsSvc.presentToast({
+          message: `Bienvenido ${user.name}`,
+          duration: 1500,
+          color: 'primary',
+          position: 'middle',
+          icon: 'person-circle-outline'
+
+        })
+
+        // await this.firebaseSvc.updateUser(this.form.value.name)
+        // console.log(res);
+        
+
+
         //capturar error
       }).catch(error => {
         console.log(error);
@@ -68,7 +132,7 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
 
         //error de firebase, cambiar 
         this.utilsSvc.presentToast({
-          message: 'error.message',
+          message: 'error papito, era noma era',
           duration: 2500,
           color: 'primary',
           position: 'middle',

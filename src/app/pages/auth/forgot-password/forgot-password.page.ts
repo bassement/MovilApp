@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,26 +10,45 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgot-password.page.scss'],
 })
 export class ForgotPasswordPage implements OnInit {
-
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
   });
 
-  successMessage: boolean = false;
+  successMessage: boolean = false; // Control de mensaje de éxito
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  submit() {
+  async submit() {
     if (this.form.valid) {
-      console.log(this.form.value); // Envío del formulario por consola
-      this.successMessage = true;
+      const loading = await this.utilsSvc.loading();
+      await loading.present();
+
+      this.firebaseSvc.sendRecoveryEmail(this.form.value.email)
+        .then(() => {
+          this.successMessage = true; // Mostrar mensaje de éxito si el correo fue enviado
+        })
+        .catch(error => {
+          console.error(error);
+          this.utilsSvc.presentToast({
+            message: error.message,
+            duration: 2500,
+            color: 'primary',
+            position: 'middle',
+            icon: 'alert-circle-outline'
+          });
+        })
+        .finally(() => {
+          loading.dismiss();
+        });
     }
   }
 
   acceptSuccess() {
-    // Redirige a la página 'auth' cuando se hace clic en Aceptar
-    this.router.navigate(['/auth']);
+    this.successMessage = false;
+    this.router.navigate(['/auth']); // Redirigir a 'auth' al aceptar
   }
 }
