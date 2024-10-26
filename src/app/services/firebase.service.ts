@@ -4,6 +4,7 @@ import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword,upda
 import {User} from '../models/user.model' ;
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import {getFirestore, setDoc, doc, getDoc} from '@angular/fire/firestore';
+import { UtilsService } from './utils.service';
 
 
 
@@ -14,6 +15,7 @@ export class FirebaseService {
 
   auth = inject(AngularFireAuth);
   firestore = inject (AngularFirestore);
+  utilSvc=inject(UtilsService);
 
 
   //------Autenticacion
@@ -62,6 +64,14 @@ export class FirebaseService {
     return (await getDoc(doc(getFirestore(), path))).data(); 
 
 
+  }
+
+
+  //funcion cerrar sesion
+  signOut(){
+    getAuth().signOut;
+    localStorage.removeItem('user');
+    this.utilSvc.routerLink('/auth')
   }
 
   

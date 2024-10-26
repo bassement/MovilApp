@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-habits',
@@ -7,12 +9,18 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./habits.page.scss'],
 })
 export class HabitsPage {
+
+  
   selectedHabit: string = '';
   waterProgress: number = 0;
   sleepProgress: number = 0;
   exerciseProgress: number = 0;
 
+ 
+
   constructor(private actionSheetCtrl: ActionSheetController) { }
+
+  
 
   async openOptions() {
     const actionSheet = await this.actionSheetCtrl.create({
