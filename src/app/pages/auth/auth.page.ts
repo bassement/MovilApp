@@ -94,63 +94,48 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
     } 
   }
 
-
   async getUserInfo(uid: string) {
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
       await loading.present();
-
-
+  
       let path = `users/${uid}`;
-      
-
-      this.firebaseSvc.getDocument(path).then((user:User) => {
-        this.utilsSvc.saveInLocalStorage('user', user);
-
-        this.utilsSvc.routerLink('/habits');
-
-        this.form.reset();
-
-        this.utilsSvc.presentToast({
-          message: `Bienvenido ${user.name}`,
-          duration: 1500,
-          color: 'primary',
-          position: 'middle',
-          icon: 'person-circle-outline'
-
-        })
-
-        // await this.firebaseSvc.updateUser(this.form.value.name)
-        // console.log(res);
-        
-
-
-        //capturar error
+  
+      this.firebaseSvc.getDocument(path).then((user: User | null) => {
+        if (user) {
+          // Guarda el usuario en localStorage
+          this.utilsSvc.saveInLocalStorage('user', user);
+          
+          // Redirecciona y muestra mensaje de bienvenida
+          this.utilsSvc.routerLink('/habits');
+          this.form.reset();
+  
+          const userName = user.name ? user.name : "Usuario";
+          
+          this.utilsSvc.presentToast({
+            message: `Bienvenido ${userName}`,
+            duration: 1500,
+            color: 'primary',
+            position: 'middle',
+            icon: 'person-circle-outline'
+          });
+        } else {
+          throw new Error("El usuario no fue encontrado en Firebase.");
+        }
       }).catch(error => {
-        console.log(error);
-
-
-        //error de firebase, cambiar 
+        console.error(error);
+  
+        // Muestra el mensaje de error si no se puede obtener el usuario
         this.utilsSvc.presentToast({
           message: 'error papito, era noma era',
           duration: 2500,
           color: 'primary',
           position: 'middle',
           icon: 'alert-circle-outline'
-
-        })
-
-        //terminar ejecucion de funcion
-      }).finally(() =>  {
+        });
+      }).finally(() => {
         loading.dismiss();
-      })
-
-      
-
-
-      
-      
-    } 
+      });
+    }
   }
-
 }
