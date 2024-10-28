@@ -1,10 +1,11 @@
-import { Injectable,inject } from '@angular/core';
-import { AngularFireAuth} from '@angular/fire/compat/auth';
-import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword,updateProfile,sendPasswordResetEmail} from 'firebase/auth';
-import {User} from '../models/user.model' ;
-import {AngularFirestore} from '@angular/fire/compat/firestore';
-import {getFirestore, setDoc, doc, getDoc} from '@angular/fire/firestore';
+import { Injectable, inject } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
+import { User } from '../models/user.model';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { getFirestore, setDoc, doc, getDoc } from '@angular/fire/firestore';
 import { UtilsService } from './utils.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 
 
@@ -14,37 +15,38 @@ import { UtilsService } from './utils.service';
 export class FirebaseService {
 
   auth = inject(AngularFireAuth);
-  firestore = inject (AngularFirestore);
-  utilSvc=inject(UtilsService);
+  firestore = inject(AngularFirestore);
+  utilSvc = inject(UtilsService);
+  storage = inject(AngularFireStorage);
 
 
   //------Autenticacion
-  getAuth(){
+  getAuth() {
     return getAuth();
   }
 
 
   //acceder con usuario creado, autenticacion
-  signIn(user:User) {
+  signIn(user: User) {
     return signInWithEmailAndPassword(getAuth(), user.email, user.password)
   }
 
 
   //creacion de usuario----------
-  signUp(user:User) {
+  signUp(user: User) {
     return createUserWithEmailAndPassword(getAuth(), user.email, user.password)
   }
 
 
 
   //actualizar Usarioio
-  updateUser(displayName: string){
-    return updateProfile(getAuth().currentUser,{displayName})
+  updateUser(displayName: string) {
+    return updateProfile(getAuth().currentUser, { displayName })
   }
 
   //recuperacion de contraseñas
-  sendRecoveryEmail(email:string){
-    return sendPasswordResetEmail(getAuth(),email)
+  sendRecoveryEmail(email: string) {
+    return sendPasswordResetEmail(getAuth(), email)
   }
 
 
@@ -53,30 +55,29 @@ export class FirebaseService {
   //setearDocumento
 
   //crear nuevo documento, o remplezarlo si ya existe
-  setDocument(path: string , data:any) {
-    return setDoc(doc(getFirestore(), path), data); 
+  setDocument(path: string, data: any) {
+    return setDoc(doc(getFirestore(), path), data);
 
   }
 
 
   //obtener el docjumentoss
-  async getDocument(path: string ){
-    return (await getDoc(doc(getFirestore(), path))).data(); 
+  async getDocument(path: string) {
+    return (await getDoc(doc(getFirestore(), path))).data();
 
 
   }
 
 
   //funcion cerrar sesion
-  signOut(){
+  signOut() {
     getAuth().signOut;
     localStorage.removeItem('user');
     this.utilSvc.routerLink('/auth')
   }
 
-  
+
 
 
 
 }
- 

@@ -10,13 +10,13 @@ import { PopoverOptionsComponent } from './components/popover-options/popover-op
 
 
 @NgModule({
-  declarations: [HeaderComponent, CustomInputComponent,LogoComponent,PopoverOptionsComponent],
+  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, PopoverOptionsComponent],
 
-  exports: [HeaderComponent, CustomInputComponent,LogoComponent,ReactiveFormsModule,PopoverOptionsComponent],
+  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, PopoverOptionsComponent, FormsModule],
 
   imports: [
     CommonModule,
-    IonicModule, 
+    IonicModule,
     ReactiveFormsModule, //formularios
     FormsModule //formularios papito
 

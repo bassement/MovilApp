@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverOptionsComponent } from '../popover-options/popover-options.component';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,8 @@ export class HeaderComponent implements OnInit {
   @Input() blackbutton!: string;
   @Input() isModal !: boolean;
   @Input() showMenu !: boolean;
+
+  utilsSvc = inject(UtilsService);
 
   constructor(private popoverController: PopoverController) { }
 

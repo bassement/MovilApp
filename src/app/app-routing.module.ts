@@ -16,29 +16,13 @@ const routes: Routes = [
 
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule), canActivate:[noAuthGuard]
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule), canActivate: [noAuthGuard]
   },
 
   {
     path: 'habits',
-    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule), canActivate:[AuthGuard]
+    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule), canActivate: [AuthGuard]
   },
-
-
-  
-  //   path: 'profile',
-  //   loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
-  // },
-  
-
- 
-
-  
-  // {
-  //   path: 'habits',
-  //   loadChildren: () => import('./pages/main/habits/habits.module').then(m => m.HabitsPageModule)
-
-  // },
 
   {
     path: 'swiper',
@@ -51,12 +35,18 @@ const routes: Routes = [
 
   },
 
+
+
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
+  },
+
   //error al final
   {
     path: '**',
     loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorPageModule)
   },
-  
 
 
 

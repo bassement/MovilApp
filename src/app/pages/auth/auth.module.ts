@@ -19,4 +19,4 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   declarations: [AuthPage]
 })
-export class AuthPageModule {}
+export class AuthPageModule { }
