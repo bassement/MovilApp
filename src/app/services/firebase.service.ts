@@ -3,9 +3,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
 import { User } from '../models/user.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getFirestore, setDoc, doc, getDoc } from '@angular/fire/firestore';
+import { getFirestore, setDoc, doc, getDoc, collection, collectionData, query, updateDoc, deleteDoc, addDoc } from '@angular/fire/firestore';
 import { UtilsService } from './utils.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+
 
 
 
@@ -54,7 +55,7 @@ export class FirebaseService {
 
   //setearDocumento
 
-  //crear nuevo documento, o remplezarlo si ya existe
+  //funcoin pa setear un documento
   setDocument(path: string, data: any) {
     return setDoc(doc(getFirestore(), path), data);
 
@@ -68,6 +69,21 @@ export class FirebaseService {
 
   }
 
+  //obtener documentos de una coleccion
+  getCollection(path: string, collectionQuery?: any) {
+    const ref = collection(getFirestore(), path);
+  }
+
+  //actualizar un documento
+  updateDocument(path: string, data: any) {
+    return updateDoc(doc(getFirestore(), path), data);
+  }
+
+  //funcion para agregar un documento
+  addDocument(path: string, data: any) {
+    return addDoc(collection(getFirestore(), path), data);
+  }
+
 
   //funcion cerrar sesion
   signOut() {
@@ -75,6 +91,7 @@ export class FirebaseService {
     localStorage.removeItem('user');
     this.utilSvc.routerLink('/auth')
   }
+
 
 
 

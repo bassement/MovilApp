@@ -25,9 +25,9 @@ export class SignUpPage implements OnInit {
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
-  constructor(private router: Router, private alertController: AlertController) {}
+  constructor(private router: Router, private alertController: AlertController) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async setUserInfo(uid: string) {
     if (this.form.valid) {
@@ -70,8 +70,10 @@ export class SignUpPage implements OnInit {
 
       this.firebaseSvc.signUp(this.form.value as User).then(async res => {
         await this.firebaseSvc.updateUser(this.form.value.name);
-        const uid = res.user.uid;
+
+        let uid = res.user.uid;
         this.form.controls.uid.setValue(uid);
+
         this.setUserInfo(uid);
       }).catch(error => {
         console.log(error);

@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController, ModalController, ToastController, ToastOptions } from '@ionic/angular';
-
+import { AlertController, AlertOptions, LoadingController, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
+//import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,22 @@ export class UtilsService {
   router = inject(Router);
   alertCtrl = inject(AlertController);
   modalCtrl = inject(ModalController);
+
+
+  //capacitor camera
+  //take a phto 
+  /*
+  async takePicture(promptLabelHeader: string){
+    return await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Prompt,
+      promptLabelHeader,
+      promptLabelPhoto: 'Seleccionar una imagen',
+      promptLabelPicture: 'Tomar una foto',
+    }); 
+  }*/
 
 
 
@@ -43,9 +59,27 @@ export class UtilsService {
     return JSON.parse(localStorage.getItem(key))
   }
 
+  // ahora lo mismo que el toast pero con modal pollito
+  async presentModal(opts: ModalOptions) {
+    const modal = await this.modalCtrl.create(opts);
+
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    if (data) return data;
+  }
+
+  dismissModal(data?: any) {
+    return this.modalCtrl.dismiss(data);
+  }
+  //alerta 
+  async presentAlert(opts?: AlertOptions) {
+    const alert = await this.alertCtrl.create(opts);
+
+    await alert.present();
+  }
 
 
 
+} import { Capacitor } from '@capacitor/core';
 
-
-}
