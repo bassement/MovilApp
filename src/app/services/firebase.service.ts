@@ -7,7 +7,7 @@ import { getFirestore, setDoc, doc, getDoc, collection, collectionData, query, u
 import { UtilsService } from './utils.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
-
+import { getStorage, uploadString, ref, getDownloadURL, deleteObject } from 'firebase/storage';
 
 
 @Injectable({
@@ -92,9 +92,24 @@ export class FirebaseService {
     this.utilSvc.routerLink('/auth')
   }
 
+  // fuincion para subir una imagen
+  async uploadImage(path: string, data_url: string) {
+    return uploadString(ref(getStorage(), path), data_url, 'data_url').then(
+      () => {
+        return getDownloadURL(ref(getStorage(), path));
+      }
+    );
+  }
 
+  //funcion para obtener ruta de la imagen con url para reemplazar la img ya existente
+  async getFilePath(url: string) {
+    return ref(getStorage(), url).fullPath;
+  }
 
-
+  //Eliminar el archgivo de firestorage
+  deleteFile(path: string) {
+    return deleteObject(ref(getStorage(), path));
+  }
 
 
 }
