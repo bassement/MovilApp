@@ -9,6 +9,7 @@ import { SwiperPageRoutingModule } from './swiper-routing.module';
 import { SwiperPage } from './swiper.page';
 
 import { defineCustomElements } from '@teamhive/lottie-player/loader';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 defineCustomElements(window);
 
@@ -17,7 +18,8 @@ defineCustomElements(window);
     CommonModule,
     FormsModule,
     IonicModule,
-    SwiperPageRoutingModule
+    SwiperPageRoutingModule,
+    SharedModule,
   ],
   declarations: [SwiperPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

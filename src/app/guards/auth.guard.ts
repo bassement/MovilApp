@@ -1,46 +1,21 @@
-import { CanActivateFn, GuardResult, MaybeAsync } from '@angular/router';
-import { inject, Injectable } from '@angular/core';
+import { inject } from '@angular/core';
+import { CanActivateFn } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
-import { ActivatedRouteSnapshot,CanActivate,RouterStateSnapshot,UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { UtilsService } from '../services/utils.service';
 
+export const authGuard: CanActivateFn = (route, state) => {
+  const firebaseSvc = inject(FirebaseService);
+  const utilsSvc = inject(UtilsService);
+  let user = localStorage.getItem('User');
 
-@Injectable({
-  providedIn: 'root'
-})
-
-export class AuthGuard implements CanActivate {
-
-
-  firebaseSvc = inject(FirebaseService);
-  utilSvc = inject(UtilsService);
-
-
-  canActivate(
-    route: ActivatedRouteSnapshot, 
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-    let user = localStorage.getItem('user');
-    
-    return new Promise ((resolve) => {
-
-
-      this.firebaseSvc.getAuth().onAuthStateChanged((auth) => {
-        
-        if (auth){
-           if (user) resolve(true);
-
-      
-        } 
-        else{
-          this.utilSvc.routerLink('/auth');
-          resolve (false);
-        }
-    }) 
+  return new Promise((resolve) => {
+    firebaseSvc.getAuth().onAuthStateChanged((auth) => {
+      if (auth) {
+        if (user) resolve(true); //Permitimos el acceso si es que el usuario esta autentificadco y si tmb existe en el localstorage
+      } else {
+        firebaseSvc.signOut(); // Nuestra funcionn signOut se encarga de borrar el item de local storage, redirigir al login y cerrar la sesion
+        resolve(false);
+      }
+    });
   });
-}
-
-}
-
-
+};

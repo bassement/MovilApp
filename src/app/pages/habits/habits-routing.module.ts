@@ -12,8 +12,8 @@ const routes: Routes = [
   //   path: 'recommendations',
   //   loadChildren: () => import('./recommendations/recommendations.module').then( m => m.RecommendationsPageModule)
   // },
-  
- 
+
+
 
 ];
 
@@ -21,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HabitsPageRoutingModule {}
+export class HabitsPageRoutingModule { }

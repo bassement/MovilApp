@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-swiper',
@@ -13,7 +14,11 @@ export class SwiperPage {
     height: null,
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  navigateToHabits() {
+    this.router.navigateByUrl('/habits');
+  }
 
   /* Ahora no esta éro es para que funcione el metodo de guardar las preguntas en un futuro swiper para dejar la informaicon del usuarlio en firebase
   saveData() {

@@ -1,44 +1,20 @@
-import { CanActivateFn, GuardResult, MaybeAsync } from '@angular/router';
-import { inject, Injectable } from '@angular/core';
+import { CanActivateFn } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
-import { ActivatedRouteSnapshot,CanActivate,RouterStateSnapshot,UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { UtilsService } from '../services/utils.service';
+import { inject } from '@angular/core';
 
+export const noAuthGuard: CanActivateFn = (route, state) => {
+  const firebaseSvc = inject(FirebaseService);
+  const utilsSvc = inject(UtilsService);
 
-@Injectable({
-  providedIn: 'root'
-})
-
-export class noAuthGuard implements CanActivate {
-
-
-  firebaseSvc = inject(FirebaseService);
-  utilSvc = inject(UtilsService);
-
-
-  canActivate(
-    route: ActivatedRouteSnapshot, 
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-    
-    return new Promise ((resolve) => {
-
-
-      this.firebaseSvc.getAuth().onAuthStateChanged((auth) => {
-        
-        if (!auth) resolve(true);
-          
-
-      
-        else{
-          this.utilSvc.routerLink('/habits');
-          resolve (false);
-        }
-    }) 
+  return new Promise((resolve) => {
+    firebaseSvc.getAuth().onAuthStateChanged((auth) => {
+      if (!auth) resolve(true); // Permitimos el acceso al auth si no esta autentificado
+      else {
+        console.log('Usuario autenticado, redirigirendo a Habits')
+        utilsSvc.routerLink('/habits');
+        resolve(false); // Redirigimos al home si esta autentificado
+      }
+    });
   });
-}
-
-}
-
-
+};

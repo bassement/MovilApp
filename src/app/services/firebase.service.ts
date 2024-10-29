@@ -29,25 +29,25 @@ export class FirebaseService {
 
   //acceder con usuario creado, autenticacion
   signIn(user: User) {
-    return signInWithEmailAndPassword(getAuth(), user.email, user.password)
+    return signInWithEmailAndPassword(getAuth(), user.email, user.password);
   }
 
 
   //creacion de usuario----------
   signUp(user: User) {
-    return createUserWithEmailAndPassword(getAuth(), user.email, user.password)
+    return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
   }
 
 
 
   //actualizar Usarioio
   updateUser(displayName: string) {
-    return updateProfile(getAuth().currentUser, { displayName })
+    return updateProfile(getAuth().currentUser, { displayName });
   }
 
   //recuperacion de contraseñas
   sendRecoveryEmail(email: string) {
-    return sendPasswordResetEmail(getAuth(), email)
+    return sendPasswordResetEmail(getAuth(), email);
   }
 
 
@@ -70,8 +70,9 @@ export class FirebaseService {
   }
 
   //obtener documentos de una coleccion
-  getCollection(path: string, collectionQuery?: any) {
+  getCollectionData(path: string, collectionQuery?: any) {
     const ref = collection(getFirestore(), path);
+    return collectionData(query(ref, collectionQuery), { idField: 'id' });
   }
 
   //actualizar un documento
@@ -87,9 +88,9 @@ export class FirebaseService {
 
   //funcion cerrar sesion
   signOut() {
-    getAuth().signOut;
+    getAuth().signOut();
     localStorage.removeItem('user');
-    this.utilSvc.routerLink('/auth')
+    this.utilSvc.routerLink('/auth');
   }
 
   // fuincion para subir una imagen
