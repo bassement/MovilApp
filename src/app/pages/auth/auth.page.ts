@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; // Importa el Router
 import { FirebaseService } from 'src/app/services/firebase.service';
-import {User} from 'src/app/models/user.model'
+import { User } from 'src/app/models/user.model'
 import { UtilsService } from 'src/app/services/utils.service';
 
 
@@ -12,7 +12,7 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-   
+
 
   //formulariots
   form = new FormGroup({
@@ -20,9 +20,9 @@ export class AuthPage implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-  
-firebaseSvc = inject(FirebaseService); //inyectar servicio de firebase
-utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla como funcion
+
+  firebaseSvc = inject(FirebaseService); //inyectar servicio de firebase
+  utilsSvc = inject(UtilsService); //inyectar el utils service, falta incorporarla como funcion
 
   loginOptions = [
     { label: 'Recuperar Contraseña', action: () => this.router.navigate(['/forgot-password']) },
@@ -65,7 +65,7 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
 
 
 
-        
+
       }).catch(error => {
         //capturar error
         console.log(error);
@@ -73,7 +73,7 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
 
         //error de firebase, cambiar 
         this.utilsSvc.presentToast({
-          message: 'error.message',
+          message: error.message,
           duration: 2500,
           color: 'primary',
           position: 'middle',
@@ -82,36 +82,36 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
         })
 
         //terminar ejecucion de funcion
-      }).finally(() =>  {
+      }).finally(() => {
         loading.dismiss();
       })
 
-      
 
 
-      
-      
-    } 
+
+
+
+    }
   }
 
   async getUserInfo(uid: string) {
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
       await loading.present();
-  
+
       let path = `users/${uid}`;
-  
+
       this.firebaseSvc.getDocument(path).then((user: User | null) => {
         if (user) {
           // Guarda el usuario en localStorage
           this.utilsSvc.saveInLocalStorage('user', user);
-          
+
           // Redirecciona y muestra mensaje de bienvenida
           this.utilsSvc.routerLink('/habits');
           this.form.reset();
-  
+
           const userName = user.name ? user.name : "Usuario";
-          
+
           this.utilsSvc.presentToast({
             message: `Bienvenido ${userName}`,
             duration: 1500,
@@ -124,7 +124,7 @@ utilsSvc=inject(UtilsService); //inyectar el utils service, falta incorporarla c
         }
       }).catch(error => {
         console.error(error);
-  
+
         // Muestra el mensaje de error si no se puede obtener el usuario
         this.utilsSvc.presentToast({
           message: 'error papito, era noma era',

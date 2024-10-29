@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, AlertOptions, LoadingController, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
-//import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,7 @@ export class UtilsService {
 
   //capacitor camera
   //take a phto 
-  /*
-  async takePicture(promptLabelHeader: string){
+  async takePicture(promptLabelHeader: string) {
     return await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
@@ -26,9 +25,10 @@ export class UtilsService {
       promptLabelHeader,
       promptLabelPhoto: 'Seleccionar una imagen',
       promptLabelPicture: 'Tomar una foto',
-    }); 
-  }*/
+    });
+  }
 
+  // para abrir el capacitor en android y ver si funciona ' npx cap open android '
 
 
   //funcion loading
