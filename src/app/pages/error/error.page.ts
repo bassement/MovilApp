@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.page.html',
   styleUrls: ['./error.page.scss'],
 })
-export class ErrorPage implements OnInit {
+export class ErrorPage {
+  constructor(private location: Location) { }
 
-  constructor(private router: Router) { }
-
-  ngOnInit() { }
-
-  goHome() {
-    this.router.navigate(['/habits']); // Redirige a la página de hábitos
+  goBack() {
+    this.location.back(); // Retrocede a la página anterior
   }
 }
