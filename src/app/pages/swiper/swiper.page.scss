@@ -19,6 +19,20 @@ lottie-player {
     height: auto;
 }
 
+/* Ajustes de animaciones Lottie en slides individuales */
+#slide1 lottie-player {
+    max-width: 300px;
+    height: 300px;
+}
+
+#slide2 lottie-player,
+#slide3 lottie-player,
+#slide4 lottie-player {
+    max-width: 200px;
+    height: 200px;
+    margin-top: 250px;
+}
+
 .buttoncolors {
     margin-left: 5vh;
     margin-right: 5vh;
@@ -30,52 +44,52 @@ lottie-player {
     margin-top: 40px;
 }
 
-#labelsesion2 {
+/* Estilos de texto y alineación en cada slide */
+#labelsesion2,
+#labelsesion,
+#tituloapp,
+#bienvenido,
+#tePreguntamos,
+#detalles2 {
     text-align: center;
+    border-radius: 10px;
+}
+
+#labelsesion2 {
     font-size: 23px;
     line-height: 30px;
     margin: 50px 20px;
-    border-radius: 10px;
 }
 
 #labelsesion {
-    text-align: center;
     font-size: 24px;
-    margin: 20px 30px;
-    border-radius: 10px;
     line-height: 40px;
+    margin: 20px 30px;
 }
 
 #tituloapp {
-    text-align: center;
     margin-top: 60px;
     font-size: 60px;
 }
 
 #bienvenido {
-    text-align: center;
     margin: 50px 0 40px;
     font-size: 20px;
 }
 
-// Estilo para la segunda diapositiva
 #tePreguntamos {
-    text-align: center;
     font-size: 30px;
     line-height: 30px;
     margin: 30px 20px;
-    border-radius: 10px;
 }
 
 #detalles2 {
-    text-align: center;
     font-size: 20px;
     line-height: 30px;
     margin: 20px;
-    border-radius: 10px;
 }
 
-// Animación de aparición de texto
+/* Animación de aparición de texto */
 .text-focus-in {
     -webkit-animation: text-focus-in 1s cubic-bezier(.55, .085, .68, .53) both;
     animation: text-focus-in 1s cubic-bezier(.55, .085, .68, .53) both;
@@ -109,7 +123,7 @@ lottie-player {
     }
 }
 
-// Animación de sombra en el titulo
+/* Animación de sombra en el título */
 .tracking-in-expand {
     -webkit-animation: tracking-in-expand 2s cubic-bezier(.215, .61, .355, 1.000) 1s both;
     animation: tracking-in-expand 2s cubic-bezier(.215, .61, .355, 1.000) 1s both;
