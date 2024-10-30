@@ -11,17 +11,17 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule),/*
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule)/*,
     canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado */
   },
   {
     path: 'habits',
-    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule),/*
+    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)/*,
     canActivate: [authGuard] //Solo accesible si el usuario está autenticado */
   },
   {
     path: 'swiper',
-    loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule),/*
+    loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule)/*,
     canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado*/
   },
   {

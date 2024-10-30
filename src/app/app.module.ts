@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment.prod';
 
 //pal swiper chicken
 import { register } from 'swiper/element/bundle';
+import { RouterModule } from '@angular/router';
 
 register();
 
@@ -23,6 +24,7 @@ register();
     IonicModule.forRoot({ mode: "md" }),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), //enviroment
+    RouterModule
 
   ],
 

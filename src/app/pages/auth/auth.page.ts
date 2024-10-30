@@ -60,7 +60,7 @@ export class AuthPage implements OnInit {
       await loading.present();
 
       this.firebaseSvc.signIn(this.form.value as User).then(res => {
-        //autenticacion pidiendo datos de firebase
+        //autenticacion pidiendo datos de firebase /
         this.getUserInfo(res.user.uid);
 
 
@@ -108,6 +108,7 @@ export class AuthPage implements OnInit {
 
           // Redirecciona y muestra mensaje de bienvenida
           this.utilsSvc.routerLink('/habits');
+          console.log('redireccionando a la page habiiiis')
           this.form.reset();
 
           const userName = user.name ? user.name : "Usuario";
