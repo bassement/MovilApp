@@ -39,7 +39,7 @@ export class SignUpPage implements OnInit {
 
       this.firebaseSvc.setDocument(path, this.form.value).then(async () => {
         this.utilsSvc.saveInLocalStorage('user', this.form.value);
-        this.utilsSvc.routerLink('/habits');
+        this.utilsSvc.routerLink('/main/habits');
         this.utilsSvc.presentToast({
           message: 'Gracias por registrarse en AppHabits',
           duration: 2500,

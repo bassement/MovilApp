@@ -11,7 +11,7 @@ export const noAuthGuard: CanActivateFn = (route, state) => {
     firebaseSvc.getAuth().onAuthStateChanged((auth) => {
       if (!auth) resolve(true); // Permitimos el acceso al auth si no esta autentificado
       else {
-        utilsSvc.routerLink('/habits');
+        utilsSvc.routerLink('/main/habits');
         console.log('Usuario autenticado, redirigirendo a Habits')
         resolve(false); // Redirigimos al home si esta autentificado
       }

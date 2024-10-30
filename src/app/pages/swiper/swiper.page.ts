@@ -17,7 +17,7 @@ export class SwiperPage {
   constructor(private router: Router) { }
 
   navigateToHabits() {
-    this.router.navigateByUrl('/habits');
+    this.router.navigateByUrl('/main/habits');
   }
 
   /* Ahora no esta éro es para que funcione el metodo de guardar las preguntas en un futuro swiper para dejar la informaicon del usuarlio en firebase

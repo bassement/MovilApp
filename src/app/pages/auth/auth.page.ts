@@ -107,7 +107,7 @@ export class AuthPage implements OnInit {
           this.utilsSvc.saveInLocalStorage('user', user);
 
           // Redirecciona y muestra mensaje de bienvenida
-          this.utilsSvc.routerLink('/habits');
+          this.utilsSvc.routerLink('/main/habits');
           console.log('redireccionando a la page habiiiis')
           this.form.reset();
 

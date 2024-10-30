@@ -11,31 +11,31 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule)/*,
-    canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado */
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule),/*
+    canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado*/
   },
-  {
-    path: 'habits',
-    loadChildren: () => import('./pages/habits/habits.module').then(m => m.HabitsPageModule)/*,
-    canActivate: [authGuard] //Solo accesible si el usuario está autenticado */
-  },
+
   {
     path: 'swiper',
-    loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule)/*,
+    loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule),/*
     canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado*/
   },
   {
     path: 'splash',
     loadChildren: () => import('./pages/splash/splash.module').then(m => m.SplashPageModule)
   },
+
   {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
+    path: 'main',
+    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule),/*
+    canActivate: [authGuard] //Solo accesible si el usuario está autenticado*/
   },
+
   {
     path: '**',
     loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorPageModule)
   }
+
 
 ];
 
