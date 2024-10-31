@@ -11,14 +11,14 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule),/*
-    canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado*/
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule),
+    canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado
   },
 
   {
     path: 'swiper',
-    loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule),/*
-    canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado*/
+    loadChildren: () => import('./pages/swiper/swiper.module').then(m => m.SwiperPageModule),
+    canActivate: [noAuthGuard] // accesible sdi el usuario no está autenticado
   },
   {
     path: 'splash',
@@ -27,8 +27,8 @@ const routes: Routes = [
 
   {
     path: 'main',
-    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule),/*
-    canActivate: [authGuard] //Solo accesible si el usuario está autenticado*/
+    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule),
+    canActivate: [authGuard] //Solo accesible si el usuario está autenticado
   },
 
   {
