@@ -37,14 +37,14 @@ export class noAuthGuard implements CanActivate {
 
       this.firebaseSvc.getAuth().onAuthStateChanged((auth) => {
 
-        if (!auth) resolve(true);
+        if (!auth) resolve(true); // si no esta logeado ingresa a auth
 
 
 
 
         else {
           this.utilSvc.routerLink('/main/habits');
-          resolve(false);
+          resolve(false); //si esta logeado ingresa a habits
         }
       })
     });
